@@ -51,7 +51,7 @@ with tab1:
         else:
             st.success("✅ **Low Attrition Risk.** High employee retention stability.")
 
-# ==================== TAB 2: BATCH CSV & PLOTLY Visuals ====================
+# ==================== TAB 2: BATCH CSV & PLOTLY VISUALS ====================
 with tab2:
     st.header("Batch Assessment & Visual Insights")
     st.write("Upload a CSV file containing employee data to process multiple records simultaneously.")
@@ -82,7 +82,7 @@ with tab2:
         st.subheader("Processed Records")
         st.dataframe(df.head(10))
         
-        # Feature 1: Download Report Button
+        # Download Report Button
         csv_data = df.to_csv(index=False).encode('utf-8')
         st.download_button(
             label="📥 Download Full Risk Analysis Report (CSV)",
@@ -91,7 +91,7 @@ with tab2:
             mime="text/csv"
         )
         
-        # Feature 2: Interactive Plotly Visualizations
+        # Interactive Plotly Visualizations
         st.markdown("---")
         st.subheader("Interactive Visual Analytics")
         
@@ -116,10 +116,13 @@ with tab3:
     st.header("Executive Tableau Analytics Dashboard")
     st.write("Embedded interactive Tableau Public visualization satisfying executive analytics requirements.")
     
-    tableau_url = "https://public.tableau.com/views/HR_Attrition_16886470870900/HRAnalytics?:showVizHome=no&:embed=true"
-    
-    tableau_embed_code = f"""
-        <iframe src="{tableau_url}" width="100%" height="700" frameborder="0"></iframe>
+    # Working Tableau Public Embed
+    tableau_embed_code = """
+    <iframe src="https://public.tableau.com/views/HRAnalyticsDashboard_16933189953430/HRAnalyticsDashboard?:showVizHome=no&:embed=true" 
+            width="100%" 
+            height="800" 
+            style="border:none;">
+    </iframe>
     """
     
-    components.html(tableau_embed_code, height=720, scrolling=True)
+    components.html(tableau_embed_code, height=820, scrolling=True)
